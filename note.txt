@@ -1,0 +1,4 @@
+package yang di install:
+npm install express highcharts.
+
+-Express adalah sebuah framework web untuk Node.js yang menyediakan serangkaian fitur untuk membangun aplikasi web dan API.
