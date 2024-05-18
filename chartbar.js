@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/barchart', (req, res) => {
+    //Fungsi callback yang menerima dua parameter, req (request) dan res (response), digunakan untuk menangani permintaan ke endpoint tersebut.
     const chartOptions = {
         chart: {
             type: 'bar'  // Ubah tipe chart menjadi 'bar'
@@ -34,6 +35,8 @@ app.get('/barchart', (req, res) => {
             });
         </script>
     `;
+    /*Membuat skrip untuk memasukkan Highcharts dan menginisialisasi chart menggunakan konfigurasi yang telah didefinisikan dalam chartOptions.
+    Menggunakan JSON.stringify(chartOptions) untuk mengubah objek konfigurasi menjadi string JSON yang valid. **/
 
     const htmlResponse = `
         <!DOCTYPE html>
@@ -47,8 +50,11 @@ app.get('/barchart', (req, res) => {
         </body>
         </html>
     `;
+    /*
+        Menyertakan chartScript dalam tag <body> untuk menjalankan skrip Highcharts saat halaman dimuat.
+     **/
 
-    res.send(htmlResponse);
+    res.send(htmlResponse); //Mengirimkan respons HTML ke klien yang meminta.
 });
 
 app.listen(3001, () => {
