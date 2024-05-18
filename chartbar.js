@@ -3,27 +3,61 @@ const app = express();
 
 app.get('/barchart', (req, res) => {
     //Fungsi callback yang menerima dua parameter, req (request) dan res (response), digunakan untuk menangani permintaan ke endpoint tersebut.
+    // const chartOptions = {
+    //     chart: {
+    //         type: 'bar'  // Ubah tipe chart menjadi 'bar'
+    //     },
+    //     title: {
+    //         text: 'Contoh Chart Batang Highcharts'
+    //     },
+    //     xAxis: {
+    //         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun']
+    //     },
+    //     yAxis: {
+    //         title: {
+    //             text: 'Nilai'
+    //         }
+    //     },
+    //     series: [{
+    //         name: 'Data 1',
+    //         data: [1, 3, 2, 4, 5, 7]
+    //     }, {
+    //         name: 'Data 2',
+    //         data: [5, 7, 6, 8, 9, 10]
+    //     }]
+    // };
     const chartOptions = {
         chart: {
-            type: 'bar'  // Ubah tipe chart menjadi 'bar'
+            type: 'column', // Menggunakan 'column' untuk chart batang vertikal
+            backgroundColor: '#f0f0f0'
         },
         title: {
-            text: 'Contoh Chart Batang Highcharts'
+            text: 'Chart Batang Pertama'
         },
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun']
+            categories: ['Gold', 'Silver', 'Bronze'], // Contoh kategori
+            title: {
+                text: 'Kategori'
+            }
         },
         yAxis: {
+            min: 0,
             title: {
-                text: 'Nilai'
+                text: 'Jumlah'
             }
         },
         series: [{
-            name: 'Data 1',
-            data: [1, 3, 2, 4, 5, 7]
+            name: 'Year 2020',
+            data: [250, 150, 100],
+            color: '#7cb5ec' // Warna biru muda
         }, {
-            name: 'Data 2',
-            data: [5, 7, 6, 8, 9, 10]
+            name: 'Year 2021',
+            data: [150, 200, 150],
+            color: '#434348' // Warna abu-abu tua
+        }, {
+            name: 'Year 2022',
+            data: [100, 150, 200],
+            color: '#90ed7d' // Warna hijau muda
         }]
     };
 
@@ -57,6 +91,6 @@ app.get('/barchart', (req, res) => {
     res.send(htmlResponse); //Mengirimkan respons HTML ke klien yang meminta.
 });
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('Server berjalan pada port 3000');
 });
